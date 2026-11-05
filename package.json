@@ -1,0 +1,19 @@
+{
+  "name": "mybuddy",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "npm run test -w @mybuddy/core",
+    "dev:api": "npm run dev -w @mybuddy/api",
+    "dev:web": "npm run dev -w @mybuddy/web",
+    "build:web": "npm run build -w @mybuddy/web",
+    "start:api": "npm run start -w @mybuddy/api",
+    "typecheck": "tsc -p packages/core && tsc -p apps/api && tsc -p apps/web"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
