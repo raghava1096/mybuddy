@@ -1,0 +1,17 @@
+# render blueprint for the api. render reads this when you create a "Blueprint" from the repo.
+services:
+  - type: web
+    name: mybuddy-api
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci
+    startCommand: npm run start:api
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DATABASE_URL
+        sync: false # paste the neon connection string in the render dashboard
+      - key: CORS_ORIGINS
+        value: https://raghava1096.github.io,http://localhost:5173
